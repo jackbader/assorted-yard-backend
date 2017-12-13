@@ -22,7 +22,7 @@ const cookieSession = require('cookie-session')
 
 app.use(function(req, res, next) {
   // res.header("Access-Control-Allow-Origin", "http://assorted-yard.surge.sh")//for deployment
-  res.header("Access-Control-Allow-Origin", "http://assorted-yard.surge.sh")//for running locally
+  res.header("Access-Control-Allow-Origin", "https://assorted-yard-backend.herokuapp.com")//for running locally
 
   res.header("Access-Control-Allow-Credentials", "true")
   res.header("Access-Control-Allow-Methods", "GET,POST,DELETE,PATCH,PUT")
@@ -41,7 +41,7 @@ passport.use(new FacebookStrategy (
   {
     clientID: '330999457376434',
     clientSecret: 'f151705ecfcd3296876fb791d66eaeb6',
-    callbackURL:'https://flex-routes.herokuapp.com/auth/facebook/callback',
+    callbackURL:'https://assorted-yard-backend.herokuapp.com/auth/facebook/callback',
     profileFields: ['id', 'displayName', 'photos', 'email'],
     enableProof: true
   },
@@ -91,7 +91,7 @@ function(req, res) {
     if (user) {
       console.log('email already exists')
       userIdQuery = user.id
-      res.redirect(`http://assorted-yard.surge.sh/?id=${userIdQuery}`);
+      res.redirect(`https://assorted-yard-backend.herokuapp.com/?id=${userIdQuery}`);
     }
     console.log('password: ')
     console.log(password)
@@ -118,7 +118,7 @@ function(req, res) {
     }
     console.log('hi 2')
     //
-    res.redirect(`http://assorted-yard.surge.sh/?id=${userIdQuery}`);
+    res.redirect(`https://assorted-yard-backend.herokuapp.com/?id=${userIdQuery}`);
   })
   .catch((err) => {
     console.log('error')
