@@ -20,6 +20,11 @@ const knex = require('./knex');
 var salt = bcrypt.genSaltSync(10);
 const cookieSession = require('cookie-session')
 
+app.use(bodyParser.json()); //keep before routes
+// app.use(cors());
+app.use(morgan('dev'))
+app.use(cookieParser());
+
 app.use(function(req, res, next) {
   // res.header("Access-Control-Allow-Origin", "http://assorted-yard.surge.sh")//for deployment
   res.header("Access-Control-Allow-Origin", "https://assorted-yard.surge.sh")//for running locally
@@ -126,11 +131,6 @@ function(req, res) {
 
   console.log('hello')
 });
-
-app.use(bodyParser.json()); //keep before routes
-// app.use(cors());
-app.use(morgan('dev'))
-app.use(cookieParser());
 
 app.use('/', users);
 app.use('/', gyms);
