@@ -44,8 +44,8 @@ const FacebookStrategy = require('passport-facebook').Strategy
 
 passport.use(new FacebookStrategy (
   {
-    clientID: '330999457376434',
-    clientSecret: 'f151705ecfcd3296876fb791d66eaeb6',
+    clientID: '1418722338256918',
+    clientSecret: '6437d7a08d2a174fb9eb652af43b562a',
     callbackURL:'https://assorted-yard-backend.herokuapp.com/auth/facebook/callback',
     profileFields: ['id', 'displayName', 'photos', 'email'],
     enableProof: true
