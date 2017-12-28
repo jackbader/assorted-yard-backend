@@ -25,10 +25,12 @@ app.use(bodyParser.json()); //keep before routes
 app.use(morgan('dev'))
 app.use(cookieParser());
 
+app.use(cookieSession({ secret: 'keyboard cat' }));
+
 app.use(function(req, res, next) {
   // res.header("Access-Control-Allow-Origin", "http://assorted-yard.surge.sh")//for deployment
+  res.header('Content-Security-Policy', 'font-src: *')
   res.header("Access-Control-Allow-Origin", "https://assorted-yard.surge.sh")//for running locally
-  res.header('Content-Security-Policy', 'style-src: unsafe-inline self, default-src: self')
   res.header("Access-Control-Allow-Credentials", "true")
   res.header("Access-Control-Allow-Methods", "GET,POST,DELETE,PATCH,PUT")
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
@@ -36,8 +38,6 @@ app.use(function(req, res, next) {
 })
 
 //
-
-app.use(cookieSession({ secret: 'keyboard cat' }));
 
 const passport = require('passport')
 const FacebookStrategy = require('passport-facebook').Strategy
