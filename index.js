@@ -29,7 +29,7 @@ app.use(cookieSession({ secret: 'keyboard cat' }));
 
 app.use(function(req, res, next) {
   // res.header("Access-Control-Allow-Origin", "http://assorted-yard.surge.sh")//for deployment
-  res.header('Content-Security-Policy', 'font-src: *')
+  // res.header('Content-Security-Policy', 'font-src: *')
   res.header("Access-Control-Allow-Origin", "https://assorted-yard.surge.sh")//for running locally
   res.header("Access-Control-Allow-Credentials", "true")
   res.header("Access-Control-Allow-Methods", "GET,POST,DELETE,PATCH,PUT")
@@ -46,7 +46,7 @@ passport.use(new FacebookStrategy (
   {
     clientID: '1418722338256918',
     clientSecret: '6437d7a08d2a174fb9eb652af43b562a',
-    callbackURL:'https://assorted-yard-backend.herokuapp.com/auth/facebook/callback',
+    callbackURL:'https://assorted-yard-backend2.herokuapp.com/auth/facebook/callback',
     profileFields: ['id', 'displayName', 'photos', 'email'],
     enableProof: true
   },
