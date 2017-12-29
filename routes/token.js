@@ -40,7 +40,7 @@ router.post('/token', function(req, res, next){
           res.send('You playin?')
         }else if(bcrypt.compareSync(req.body.password, data.hashed_password)){
           console.log(process.env.JWT_KEY)
-          let token = jwt.sign({id: data.id}, process.env.JWT_KEY)
+          let token = jwt.sign({id: data.id}, 'dsfsdfsdf')
           console.log('this is token black guy token ' +token)
           res.cookie('token', token, {httpOnly:true})
           res.send({id: data.id, email: data.email, firstName: data.first_name, lastName: data.last_name})
