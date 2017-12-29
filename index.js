@@ -96,7 +96,7 @@ function(req, res) {
     if (user) {
       console.log('email already exists')
       userIdQuery = user.id
-      res.redirect(`http://assorted-yard.surge.sh/?id=${userIdQuery}`);
+      res.redirect(`https://assorted-yard.surge.sh/?id=${userIdQuery}`);
     }
     console.log('password: ')
     console.log(password)
@@ -123,7 +123,7 @@ function(req, res) {
     }
     console.log('hi 2')
     //
-    res.redirect(`http://assorted-yard.surge.sh/?id=${userIdQuery}`);
+    res.redirect(`https://assorted-yard.surge.sh/?id=${userIdQuery}`);
   })
   .catch((err) => {
     console.log('error')
